@@ -7,4 +7,7 @@ all:
 clean:
 	rm -rf build
 
-.PHONY: all clean run
+doc:
+	javadoc -d doc src/*.java
+
+.PHONY: all clean run doc
