@@ -2,7 +2,23 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Main.java
+ * This class reads the input file and processes the commands to add, remove, search, update, and print stocks.
+ * It also performs performance analysis on the StockDataManager class.
+ */
 public class Main {
+	/**
+   * Private constructor to prevent instantiation of the class.
+   */
+	private Main() {
+		// private constructor to hide the implicit public one
+	}
+
+	/**
+   * Main method to read the input file and process the commands.
+   * @param args The command line arguments.
+   */
 	public static void
 	main(String[] args) {
 		if (args.length != 1) {
@@ -28,6 +44,13 @@ public class Main {
 		performPerformanceAnalysis(manager, 1_000_000);
 	}
 
+	/**
+   * Method to process the command read from the input file.
+   * @param line The command to be processed.
+   * @param manager The StockDataManager object to perform the operations.
+   * @throws NullPointerException If the command is invalid.
+   * @throws NumberFormatException If the command contains invalid numbers.
+   */
 	private static void
 	processCommand(String line, StockDataManager manager) throws NullPointerException, NumberFormatException {
 		String[] tokens = line.split(" ");
@@ -81,6 +104,11 @@ public class Main {
 		}
 	}
 
+	/**
+   * Method to perform performance analysis on the StockDataManager class.
+   * @param manager The StockDataManager object to perform the operations.
+   * @param size The number of operations to be performed.
+   */
 	private static void
 	performPerformanceAnalysis(StockDataManager manager, int size) {
 		long startTime, endTime;
